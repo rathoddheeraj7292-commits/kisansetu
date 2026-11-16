@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kisan setu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex h-screen bg-gray-50 font-sans">
+    <aside class="w-64 bg-slate-800 text-white flex flex-col">
+        <div class="p-4 text-2xl font-bold border-b border-slate-700">
+            Kisan setu
+        </div>
+        <nav class="flex-1 p-4">
+            <a href="#" class="block py-2 px-4 rounded bg-slate-700 transition-colors">market prices</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-8 overflow-y-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">live agricultural market</h1>
+        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+            <h2 class="text-lg font-semibold text-gray-700 mb-4">Log Market Price</h2>
+            <form id="insertForm" class="flex gap-4 items-end">
+                 <div class="flex-1">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">id</label>
+                    <input type="varchar" id="eventId" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+
+                </div>
+                <div class="flex-1">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">market event/crop</label>
+                    <input type="text" id="eventName" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                    
+                </div>
+                <div class="flex-1">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">price(INR)</label>
+                    <input type="number" id="eventPrice" min="0" step="0.01" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+
+                </div>
+               
+                <button type="submit" class="bg-slate-800 text-white px-6 py-2 rounded-md hover:bg-slate-600 transition-colors font-medium">Publish Record</button>
+                
+
+            </form>
+            
+
+        </div>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <table class="min-w-full leading-normal">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 test-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            id
+                        </th>
+                        <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            market event
+                        </th>
+                        <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            price
+                        </th>
+                        <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            actions
+                        </th>
+
+                        
+
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>  
+</body>
+</html>
